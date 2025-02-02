@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLit - Query JSON with SQL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #00e676;
+        }
+        .demo {
+            background: #2e2e2e;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .gif-container {
+            margin: 20px 0;
+        }
+        .cta {
+            margin-top: 20px;
+        }
+        .cta button {
+            background-color: #00e676;
+            color: #000;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cta button:hover {
+            background-color: #00c853;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Query JSON with SQL</h1>
+        <p>Run SQL queries on JSON files from the command line.</p>
+        
+        <div class="demo">
+            <code>
+                $ sqlit data.json "SELECT name, age FROM users WHERE age > 25"
+            </code>
+        </div>
+        
+        <div class="gif-container">
+            <img src="demo.gif" alt="SQLit in action" width="100%">
+        </div>
+        
+        <h2>Features</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li>✅ SQL queries on JSON</li>
+            <li>✅ Lightweight & Fast</li>
+            <li>✅ Works with APIs & NoSQL</li>
+            <li>✅ Cross-Platform (macOS, Linux, Windows)</li>
+        </ul>
+        
+        <div class="cta">
+            <h3>Join the Private Beta</h3>
+            <input type="email" placeholder="Enter your email" id="email">
+            <button onclick="alert('Beta request received!')">Request Access</button>
+        </div>
+    </div>
+</body>
+</html>
+
