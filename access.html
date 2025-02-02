@@ -61,8 +61,12 @@
     <div class="container">
         <h1>🚀 Welcome to SQLit Private Beta!</h1>
         <p>Thank you so much for trying out Sqlit and sharing your feedback.</p>
+        <h2>💬 Feedback </h2>
         <p>Purpose of private beta is to gauge early signals to validate the problem space, and course correction. Please install, try out, and share your feedback.</p>
-        <p>The codebase is private at the moment to prevent any premature wider attention. We'll open source the codebase once we have gained more confidence in the project direction. We're happy to share the codebase access privately if you'd like to verify the authenticity of the Sqlit installation. Please request access <a href="https://forms.gle/mKzB61UMMcF2foiTA" target="_blank">here</a>.</p>
+        <ul>
+            <li><a href="https://forms.gle/XzqLrnwfHnG9KzYf7" target="_blank">Submit feedback</a></li>
+            <li><a href="https://forms.gle/5Jfb9J6DwDxn5Uy59" target="_blank">Report a bug</a></li>
+        </ul>
 
         <h2>🛠️ Installation </h2>
         <p>Install using Homebrew:</p>
@@ -105,13 +109,8 @@ brew install sqlit</code></pre>
         <p><strong>Sort data:</strong></p>
         <pre><code class="language-bash">cat data.json | sqlit -q "SELECT COUNT(*) AS entries, state FROM CONSOLE('json') GROUP BY state ORDER BY entries DESC"</code></pre>
 
-        <h2>💬 Feedback </h2>
-        <p>We value your input! Please use the links below to share your thoughts:</p>
-        <ul>
-            <li><a href="https://forms.gle/XzqLrnwfHnG9KzYf7" target="_blank">Submit feedback</a></li>
-            <li><a href="https://forms.gle/5Jfb9J6DwDxn5Uy59" target="_blank">Report a bug</a></li>
-        </ul>
-
+        <h2> ⚠️ Important</h2>
+        <p>The codebase is private at the moment to prevent any premature wider attention. We'll open source the codebase once we have gained more confidence in the project direction. We're happy to share the codebase access privately if you'd like to verify the authenticity of the Sqlit installation. Please request access <a href="https://forms.gle/mKzB61UMMcF2foiTA" target="_blank">here</a>.</p>
     </div>
   </body>
 </html>
