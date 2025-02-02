@@ -93,6 +93,9 @@ brew install sqlit</code></pre>
         <p><strong>Select named columns:</strong></p>
         <pre><code class="language-bash">cat data.json | sqlit -q "SELECT name, city, state FROM CONSOLE('json')"</code></pre>
 
+        <p><strong>Select nested columns:</strong></p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT name, attributes.ByAppointmentOnly FROM CONSOLE('json')"</code></pre>
+
         <p><strong>Filter by columns:</strong></p>
         <pre><code class="language-bash">cat data.json | sqlit -q "SELECT name, city, state FROM CONSOLE('json') WHERE state='CA'"</code></pre>
 
