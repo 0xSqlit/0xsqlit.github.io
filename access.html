@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLit - Access Instructions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        h1, h2 {
+            color: #00e676;
+        }
+        pre {
+            background: #2e2e2e;
+            padding: 0 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        a {
+            color: #00e676;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .gif-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .gif-container img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <div class="container">
+        <h1>🚀 Welcome to SQLit Private Beta!</h1>
+        <p>Thank you so much for trying out Sqlit and sharing your feedback.</p>
+        <p>Purpose of private beta is to gauge early signals to validate the problem space, and course correction. Please install, try out, and share your feedback.</p>
+        <p>The codebase is private at the moment to prevent any premature wider attention. We'll open source the codebase once we have gained more confidence in the project direction. We're happy to share the codebase access privately if you'd like to verify the authenticity of the Sqlit installation. Please request access <a href="https://forms.gle/mKzB61UMMcF2foiTA" target="_blank">here</a>.</p>
+
+        <h2>🛠️ Installation </h2>
+        <p>Install using Homebrew:</p>
+        <pre><code class="language-bash">brew upgrade
+brew tap 0xSqlit/homebrew-sqlit
+brew install sqlit</code></pre>
+        <p>Verify installation by running the command:</p>
+        <pre><code class="language-bash">sqlit</code></pre>
+
+        <p>You can download test data <a href="/data.json" target="_blank">data.json</a> (a subset of Yelp's open dataset), or use any of your own data files.</p>
+
+        <h2>📘 Basic Usage </h2>
+        <p>Sqlit executes a SQL query on any data source. For example:</p>
+        <pre><code class="language-bash">sqlit --query "SELECT * FROM FILE('data.json', 'json')"</code></pre>
+        <p>It locates the file `data.json` in the same directory where the command is run, and reads it as a `json`. Currently, the only other supported format is `ndjson` (newline-delimited JSON) but more formats are on the way.</p>
+
+        <p>You can also read data from standard input. For example:</p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT * FROM CONSOLE('json')"</code></pre>
+        <p>You can fetch data from an API via `wget` or `curl` and pipe it into `sqlit`.</p>
+
+        <p>You can write Sqlit output to a new file. For example:</p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT * FROM CONSOLE('json')" --output_filename "my_new_file.json"</code></pre>
+        <p>This will read data from standard input, transform it using the provided SQL query, and then write it in a new file as JSON.</p>
+
+        <p><strong>Select the first two columns:</strong></p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT 0, 1 FROM CONSOLE('json')"</code></pre>
+
+        <p><strong>Select named columns:</strong></p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT name, city, state FROM CONSOLE('json')"</code></pre>
+
+        <p><strong>Filter by columns:</strong></p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT name, city, state FROM CONSOLE('json') WHERE state='CA'"</code></pre>
+
+        <p><strong>Aggregate data:</strong></p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT COUNT(*) AS entries, state FROM CONSOLE('json') GROUP BY state"</code></pre>
+
+        <p><strong>Sort data:</strong></p>
+        <pre><code class="language-bash">cat data.json | sqlit -q "SELECT COUNT(*) AS entries, state FROM CONSOLE('json') GROUP BY state ORDER BY entries DESC"</code></pre>
+
+        <h2>💬 Feedback </h2>
+        <p>We value your input! Please use the links below to share your thoughts:</p>
+        <ul>
+            <li><a href="https://forms.gle/XzqLrnwfHnG9KzYf7" target="_blank">Submit feedback</a></li>
+            <li><a href="https://forms.gle/5Jfb9J6DwDxn5Uy59" target="_blank">Report a bug</a></li>
+        </ul>
+
+    </div>
+  </body>
+</html>
