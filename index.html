@@ -61,13 +61,15 @@
         
         <div class="demo">
             <code>
-                $ sqlit data.json "SELECT name, age FROM users WHERE age > 25"
+                $ cat users.json | sqlit -q "SELECT name, age FROM CONSOLE('json') WHERE age > 25"
             </code>
         </div>
         
+        <!--
         <div class="gif-container">
             <img src="demo.gif" alt="SQLit in action" width="100%">
         </div>
+        -->
         
         <h2>Features</h2>
         <ul style="list-style: none; padding: 0;">
